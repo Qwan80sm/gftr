@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تشغيل الفيديو</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .video-container {
+            max-width: 800px;
+            margin: auto;
+            background: #222;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        video {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: #ffcc00;
+            text-decoration: none;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>تشغيل الفيديو</h1>
+        <div class="video-container">
+            <video id="videoPlayer" controls>
+                <source src="" type="video/mp4">
+                متصفحك لا يدعم تشغيل الفيديو.
+            </video>
+        </div>
+        <a class="back-link" href="index.html">&#8592; العودة إلى الصفحة الرئيسية</a>
+    </div>
+
+    <script>
+        // الحصول على معرف الفيديو من رابط الصفحة
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoFile = urlParams.get('file');
+        
+        if (videoFile) {
+            document.getElementById('videoPlayer').src = `videos/${videoFile}`;
+        }
+    </script>
+</body>
+</html>
